@@ -1,0 +1,58 @@
+@pattern bl1_t @crlfwait_off
+@loop
+	c0 bd .4
+	a0 chr1 .2
+	a0 bl .2
+	c0 sn2 .4
+	a0 bl v=0 .2
+	a0 chr1 .2
+	c0 bd .4
+	a0 bl v=0 .4
+	c0 sn2 .2
+	a0 chr1 .2
+	g0 bl v=0 .4
+@stop
+
+
+@pattern bl2_t @crlfwait_off
+@loop
+	c0 bd .4
+	a0 chr1 .2
+	c0 bl .2
+	c0 sn2 .4
+	c0 bl v=0 .2
+	a0 chr1 .2
+	c0 bd .4
+	c0 bl v=0 .4
+	c0 sn2 .2
+	a0 chr1 .2
+	g0 bl v=0 .4
+
+	c0 bd .4
+	a0 chr1 .2
+	d0 bl .2
+	c0 sn2 .4
+	d0 bl v=0 .2
+	a0 chr1 .2
+	c0 bd .4
+	d0 bl v=0 .4
+	c0 sn2 .2
+	c0 bd .2
+	c1 bl v=0 .2
+	a0 chr1 .2
+
+@stop
+
+
+@pattern bip1_t @crlfwait_off
+@loop
+    e1 bip .2
+    c1 bip .2
+    a0 bip .2
+    e1 bip .2
+    c1 bip .2
+    d0 bip .2
+@stop
+
+
+

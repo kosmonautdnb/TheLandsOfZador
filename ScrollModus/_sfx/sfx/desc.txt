@@ -1,0 +1,9 @@
+00. diamond
+01. explosion
+02. collect
+03. jump
+04. lazer
+05. hit
+06. little jump
+07. fadeinout
+08. dash

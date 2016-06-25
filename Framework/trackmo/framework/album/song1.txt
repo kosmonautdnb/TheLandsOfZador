@@ -1,0 +1,247 @@
+@song metamerism
+
+	number=4
+
+	patternlen=63
+	speed=2
+	grooveboxlen=4
+	groovebox[0]=6
+	groovebox[1]=5
+	groovebox[2]=4
+	groovebox[3]=3
+;	groovebox[0]=5
+;	groovebox[1]=4
+;	groovebox[2]=5
+;	groovebox[3]=4
+
+	dynamics[0]=0
+	dynamics[1]=0
+
+
+
+
+	pl prz nil
+	pl prz nil
+	pl prz nil
+	pl prz nil
+
+	pl pr0 nil
+	pl pr0 nil
+	pl pr0 nil
+	pl pr0 nil
+
+	pl pr nil
+	pl pr nil
+	pl pr nil
+	pl_fi1 pr nil
+
+
+	pl pr2 nil
+	pl pr2 nil
+	pl pr2 nil
+	pl_fi1 pr2 nil
+
+	pl pr2 px
+	pl pr2 px
+	pl pr2 px
+	pl_fi1 pr2_fi1 px
+
+	pl pr2 px
+	pl pr2 px
+	pl pr2 px
+	pl_fi1 pr2_fi1 px_fi1
+
+
+;----
+
+
+	pl melo1ch nil
+	pl melo2ch nil
+	pl melo1ch nil
+	pl_fi1 melo2ch nil
+
+
+	melo1ch melo1 off
+	melo2ch melo2 downgroove
+	melo1ch melo3 nil
+	melo2ch melo4 nil
+	
+@loop
+	melo1_od bl1 melo1ch   
+	melo2_od bl2 melo2ch  
+	melo3_od bl1 melo1ch  
+	melo4_od bl2_fi melo2ch  
+	
+	melo1 bl1 melo1ch   
+	melo2 bl2 melo2ch  
+	melo3 bl1 melo1ch  
+    melo4 bl2_fi2 melo2ch  
+	
+	melo1ch bip1 bl1 
+	melo2ch bip1 bl2_fi 
+	melo1ch bip1 bl1 
+	melo2ch bip1 bl2_fi2 
+	
+	bip1 bln1 hhmixin
+	bip1 bln2 hhmixin
+	bip1 bln1 hhmixin
+	bip1 bln2 hhmixin
+
+	bip1 bl1 hhmixin
+	bip1 bl2_fi hhmixin
+	bip1 bl1 hhmixin
+	bip1 bl2_fi hhmixin
+   
+	bip1_t bl1_t hhmixin
+	bip1_t bl2_t hhmixin
+	bip1_t bl1_t hhmixin
+	bip1_t bl2_t hhmixin
+
+	bip1 bl1 hhmixin
+	bip1 bl2_fi hhmixin
+	bip1 bl1 hhmixin
+	bip1 bl2_fi2 hhmixin
+
+
+;---- wieder zurück
+
+    upgroove prz bip1
+    pl_fi5 prz_fi4  bip1
+
+
+    pl pr2 bip1
+    pl pr2 bip1
+    pl pr2 bip1
+    pl_fi1 pr2_fi1 bip1
+
+    pl pr2 px
+    pl pr2 px
+    pl pr2 px
+    pl_fi4 pr2_fi4 px_fi1
+
+
+    pl pr2 claptest
+    pl pr2 claptest
+    pl pr2 claptest
+    pl_fi4 pr2_fi4 claptest
+
+    claptest_beng claptest claptest_hh 
+    claptest_beng claptest claptest_hh 
+    claptest_beng claptest claptest_hh 
+    claptest_beng_fi claptest claptest_hh_fi1 
+
+    claptest_beng bip1 claptest_hhchr
+    claptest_beng bip1 claptest_hhchr
+    claptest_beng bip1 claptest_hhchr
+    claptest_beng_fi bip1 claptest_hhchr
+
+	melo1ch bip1 claptest_hhchr
+	melo2ch bip1 claptest_hhchr
+
+	melo1ch bip1 nil
+	melo2ch bip1 nil
+
+	melo1ch bl1 downgroove
+	melo2ch bl2_fi nil
+	melo1ch bl1 nil
+	melo2ch bl2_fi nil
+
+
+;    bln1 prz bip1
+;    bln2 prz bip1
+;    bln1 prz bip1
+;    bln2 pr0 bip1
+;
+;    bln1 pr bip1
+;    bln2 pr bip1
+;    bln1 pr bip1
+;    bln2 pr2 bip1
+;
+
+
+
+;	nil prz bip1 
+;	nil prz bip1 
+;	upgroove  pr0 bip1 
+;	nil pr0 bip1 
+;
+;	px pr bip1_t 
+;	px pr bip1_t 
+;	px pr2 bip1_t 
+;	px pr2_fi1 bip1_t 
+;
+;	pl pr2 px
+;	pl pr2 px
+;	pl pr2 px
+;	pl_fi1 pr2_fi1 px_fi1
+;
+;	pl pr2 claptest
+;	pl pr2 claptest
+;	pl pr2 claptest
+;	pl_fi1 pr2_fi1 claptest
+;
+;	bip1 pr2 claptest
+;	bip1 pr2 claptest
+;	bip1 pr2 claptest
+;	bip1 pr2_fi1 claptest
+;
+;	claptest_bdx claptest nil
+;	claptest_bdx claptest nil
+;	claptest_bdx claptest nil
+;	claptest_bdx claptest nil
+;
+;	claptest_bd claptest nil
+;	claptest_bd claptest nil
+;	claptest_bd claptest nil
+;	claptest_bd claptest nil
+;
+;	claptest_bd claptest claptest_hh
+;	claptest_bd claptest claptest_hh
+;	claptest_bd claptest claptest_hh
+;	claptest_bd claptest claptest_hh
+;
+;
+
+
+;	melo1ch prz claptest
+;	melo1ch prz claptest
+;	melo1ch prz claptest
+;	melo1ch prz claptest
+;
+
+
+;    nil bl1 downgroove
+;    nil bl2 nil
+;
+;    nil bl1 hhmixin
+;    nil bl2 hhmixin
+;
+;
+;    bip1 bl1 hhmixin
+;    bip1 bl2 hhmixin
+;    bip1 bl1 hhmixin
+;    bip1 bl2 hhmixin
+;
+;    melo1 bl1 hhmixin
+;    melo2 bl2 hhmixin
+;    melo3 bl1 hhmixin
+;    melo4 bl2 hhmixin
+;
+;    melo1 bl1 hhmixin
+;    melo2 bl2 hhmixin
+;    melo3 bl1 hhmixin
+;    melo4 bl2 hhmixin
+;
+;
+
+
+;-----
+
+
+
+
+
+
+
+
+;----

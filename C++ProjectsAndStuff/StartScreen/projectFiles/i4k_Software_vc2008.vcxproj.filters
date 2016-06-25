@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{660b0869-ddf9-4367-afd4-9bcfe83d3832}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\_windows">
+      <UniqueIdentifier>{a437a4d2-0a59-4ca1-80b5-b23b9bcbb840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ss_globalCode">
+      <UniqueIdentifier>{438a35ad-c68a-4890-980a-88fe0f3d0f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mos2titlemusics">
+      <UniqueIdentifier>{999a1f86-0561-42be-9f15-7e15a7a6f5e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\StartScreen\_c\config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartScreen\_c\fp.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartScreen\_c\intro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartScreen\_c\setup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartScreen\_c\utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\StartScreen\_c\_windows\main_deb.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartScreen\_c\_windows\main_rel.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartScreen\_c\intro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartScreen\_c\setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartScreen\_c\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\StartScreen\_code\GlobalCode\demopart.asm">
+      <Filter>Source Files\ss_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartScreen\_code\GlobalCode\fadercode.asm">
+      <Filter>Source Files\ss_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\Musics\Othersongs\source\MOS2_Title.asm">
+      <Filter>Source Files\mos2titlemusics</Filter>
+    </None>
+    <None Include="..\..\..\Musics\Othersongs\make\makeMOS2_Title.asm">
+      <Filter>Source Files\mos2titlemusics</Filter>
+    </None>
+  </ItemGroup>
+</Project>

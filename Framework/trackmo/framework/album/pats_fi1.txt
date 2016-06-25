@@ -1,0 +1,197 @@
+@pattern pl_fi1 @crlfwait_off
+@loop
+	d0 beng v=0 .4
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+	d0 beng .4
+
+	c#0 beng .4
+	c#0 beng .4
+	f0 beng .4
+	f0 beng .4
+
+	e2 beng .4
+	e2 beng .4
+	d#0 beng .4
+	d#0 beng .4
+@stop
+
+
+
+@pattern pr2_fi1 @crlfwait_off
+@loop
+	bd v=0 .4
+	hh4 .2
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .2
+	hh .2
+	bd v=0 .2
+	hh .2
+	bd v=0 .2
+	hh2 .2
+	bd v=0 .2
+	hh2 .2
+	
+	sn .2
+	hh2 .2
+	sn .2
+	hh2 .2
+	sn .2
+	hh .2
+	sn v=0 .2
+	hh .2
+	
+@stop
+
+
+@pattern prz_fi1 @crlfwait_off
+	bd v=0 .8
+	bd  .8
+	bd  .8
+	bd  .8
+@loop
+	bd  .4
+@stop
+
+@pattern px_fi1 @crlfwait_off
+@loop
+	d2 pling v=0 .2
+	pling .2
+	pling .2
+	pling .2
+
+	pling .2
+	pling .2
+	pling .2
+	pling .2
+
+	pling .2
+	pling .2
+	pling .2
+	pling .2
+
+	pling .2
+	pling .2
+	pling .2
+	pling .2
+
+	pling .4
+	pling .4
+	pling .4
+	pling .4
+
+	pling .2
+	pling .2
+	pling .2
+	pling .2
+@stop
+
+
+
+
+
+@pattern pl_fi4 @crlfwait_off
+@loop
+	d0 beng v=0 .4
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+	d0 beng .4
+
+	c#0 beng .8
+	f0 beng .8
+
+	e2 beng .8
+	d#0 beng .8
+@stop
+
+
+
+@pattern pr2_fi4 @crlfwait_off
+@loop
+	bd v=0 .4
+	hh4 .2
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh .4
+	bd v=0 .4
+	hh2 .4
+	
+	sn .4
+	hh2 .4
+	sn .4
+	hh4 .2
+	sn .2
+	
+@stop
+
+
+
+@pattern prz_fi4 @crlfwait_off
+	bd v=0 .8
+	bd .8
+	bd .8
+	bd .8
+
+	bd .8
+	bd .8
+	bd .8
+	sn .2
+	bd .4
+	sn .2
+@stop
+
+
+
+
+@pattern pl_fi5 @crlfwait_off
+@loop
+	d0 beng v=0 .8
+	d#0 beng .8
+
+	d0 beng .8
+	d#0 beng .8
+
+	c#0 beng .4
+	c#0 beng .4
+	f0 beng .4
+	f0 beng .4
+
+	e2 beng .4
+	e2 beng .4
+	d#0 beng .4
+	d#0 beng .4
+@stop

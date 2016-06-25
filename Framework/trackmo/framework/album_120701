@@ -1,0 +1,523 @@
+@instrument bd
+@frq
+	pu	$28
+		$18
+		$04
+		$00
+
+	p	$3fc
+	x	$00 
+	p	$3fc 
+	x	$00 
+	p	$3fc 
+@loop
+	x	$00 
+	
+
+@vol
+	$0f
+	$0c .6
+	$0a .4 
+	$06 .2 
+	$04 .1 
+	$02 .1 
+	$01 .1
+@loop
+	$00 .2 
+
+
+
+
+@instrument bd2
+@frq
+	un  $3f0
+	pu	$38
+		$20
+		$18
+		$04
+		$00
+
+	p	$3fb
+	x	$00 
+	p	$3fa 
+	x	$00 
+	p	$3f9 
+	x	$00 
+
+@loop
+	p	$3fd
+	x	$00 
+	
+
+
+@vol
+	$0f
+	$0c .2
+	$08 .2 
+	$06 .2 
+	$04 .1 
+	$02 .1 
+	$04 .4
+@loop
+	$00 .2 
+
+
+
+@instrument sn
+@frq
+	nu	$3f4
+	p	$48 
+	p	$28 
+	n	$3c1 
+@loop
+;	n	$3fa
+;	n	$3f2
+	n	$3fa
+	n	$3f7
+
+@vol
+	$0f .2
+	$0c .2
+	$08 .2
+@loop
+	$00 ...
+
+
+
+
+@instrument sn2
+@frq
+	nu	$3fa
+	p	$28 .
+	n	$3f1 ..
+	n	$3e8 
+	n	$3f3
+;	n	$3f1
+@loop
+	n	$3a7
+	n	$3fa
+
+@vol
+	$0f .2
+	$0c .2
+	$08 .8
+@loop
+	$00 ...
+
+
+@instrument hh
+@frq
+@loop
+	nu	$3ec
+	n	$3ed
+
+@vol
+	$0f 
+	$0c
+	$08 
+	$06
+	$04
+	$02 
+@loop
+	$00
+
+
+@instrument hh2
+@frq
+	pun	$3e1
+	n	$3e5
+@loop
+	n	$3eb
+
+@vol
+	$0f 
+@loop
+	$00
+
+@instrument hh4
+@frq
+	pun	$3fa
+	n	$3fa
+@loop
+	n	$3eb
+
+@vol
+	$0f 
+@loop
+	$00
+
+@instrument hh3
+@frq
+	pu	$3f8
+	pu	$360 
+	n	$3f4
+	n	$3f3
+@loop
+	n	$3f4
+	n	$3f3
+
+@vol
+	$0f .
+	$0b 
+@loop
+	$03
+
+
+
+
+@instrument hht
+@frq
+@loop
+	nu	$3ed
+	n	$3e2
+	n	$3f7
+	n	$3fa
+
+@vol
+@loop
+	$0e 
+	$04 
+	$00 ....
+
+
+@instrument hht2
+@frq
+@loop
+	nu	$3e4
+	p	$3e3
+	n	$3a2
+
+@vol
+@loop
+	$0e 
+	$0c 
+	$00 ...
+
+
+
+@instrument cl
+@frq
+	nu	$3fb .5
+	nu	$3fa
+@loop
+	nu	$3f7
+	
+@vol
+	$0e .4
+	$0d
+	$0c
+	$0b
+	$0a
+	$09
+	$08
+	$04 ...
+@loop
+	$00 
+
+
+
+@instrument beng
+@frq
+
+@loop
+	pt	$3f3
+	xt	$00 
+	pt	$3f3
+	xt	$00 
+
+
+@vol
+	$0f
+	$0c .4
+	$08 .4
+	$06 .2 
+	$04 .4 
+	$02 .4 
+	$01 .4
+@loop
+	$00 .2 
+
+
+@instrument pling
+@frq
+@loop
+	pt	c1
+
+
+@vol
+	$0c  .
+	$03 .2
+@loop
+	$00 .2 
+
+@pattern pl @crlfwait_off
+@loop
+	d0 beng v=0 .4
+	d0 beng v=0 .4
+	d#0 beng v=0 .4
+	d0 beng v=0 .4
+
+	d0 beng v=0 .4
+	d#0 beng v=0 .4
+	d0 beng v=0 .4
+	d0 beng v=0 .4
+
+	d0 beng v=0 .4
+	d0 beng v=0 .4
+	d#0 beng v=0 .4
+	d0 beng v=0 .4
+
+	e2 beng v=0 .4
+	d#0 beng v=0 .4
+	d0 beng v=0 .4
+	d0 beng v=0 .4
+@stop
+
+
+
+@pattern pr0 @crlfwait_off
+@loop
+	bd v=0 .6
+	hh .2
+	bd v=0 .4
+	hh .4
+	
+	bd v=0 .6
+	hh .2
+	bd v=0 .4
+	hh .4
+
+	bd v=0 .6
+	hh .2
+	bd v=0 .4
+	hh .4
+
+	bd v=0 .6
+	hh .2
+	bd v=0 .4
+	hh .4
+	
+@stop
+
+
+@pattern pr @crlfwait_off
+@loop
+	bd v=0 .6
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	sn .2
+	bd v=0 .2
+	hh3 .4
+	hh .2
+	
+@stop
+
+
+@pattern pr2 @crlfwait_off
+@loop
+	bd v=0 .4
+	hh4 .2
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	hh3 .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .2
+	hh3 .4
+	hh .2
+	
+@stop
+
+
+
+@pattern px @crlfwait_off
+@loop
+	d2 pling v=0 .2
+@stop
+@instrument sq
+@frq
+	pu $3f1
+	pt $3f4 .
+ 	pt $3f3 .
+	pt $3f2 .
+	pt $3f1 .
+@loop
+	pt $3f0
+
+@vol
+@loop
+	$0c .6
+	$02 .5 
+	$0a .4
+	$02 .3 
+
+
+
+
+@pattern claptest @crlfwait_off
+@loop
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .2
+
+	c3t+1 sq .4
+
+	cl v=-4 .4
+
+
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .4
+
+	c3t+1 sq v=-4 .2
+
+	cl v=-4 .4
+@stop
+
+
+@pattern claptest_bdx @crlfwait_off
+@loop
+	bd .8
+@stop
+
+@pattern claptest_bd @crlfwait_off
+@loop
+	bd .4
+	a1 sq .4
+	bd .4
+	h1 sq .4
+	bd .4
+	a1 sq .4
+	bd .4
+	a1 sq .2
+	bd .2
+
+
+	bd .4
+	a1 sq .4
+	bd .4
+	h1 sq .4
+	bd .4
+	e1 sq .4
+	bd .4
+	d1 sq .2
+	bd .2
+@stop
+
+
+@pattern claptest_hh @crlfwait_off
+@loop
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	sn .2
+	hh4 .2
+	hh4 .2
+	sn .2
+	hh4 .2
+
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	sn .2
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	hh4 .2
+@stop
+
+
+	
+	
+@song juhu
+
+	number=4
+
+	patternlen=63
+	speed=2
+	grooveboxlen=4
+	groovebox[0]=6
+	groovebox[1]=5
+	groovebox[2]=4
+	groovebox[3]=3
+
+	dynamics[0]=0
+	dynamics[1]=0
+	
+@loop
+	pl pr0 nil
+	pl pr0 nil
+	pl pr0 nil
+	pl pr0 nil
+
+	pl pr nil
+	pl pr nil
+	pl pr nil
+	pl pr nil
+
+
+	pl pr2 nil
+	pl pr2 nil
+	pl pr2 nil
+	pl pr2 nil
+
+	pl pr2 px
+	pl pr2 px
+	pl pr2 px
+	pl pr2 px
+
+	claptest_bdx claptest nil
+	claptest_bdx claptest nil
+	claptest_bdx claptest nil
+	claptest_bdx claptest nil
+
+	claptest_bd claptest nil
+	claptest_bd claptest nil
+	claptest_bd claptest nil
+	claptest_bd claptest nil
+
+	claptest_bd claptest claptest_hh
+	claptest_bd claptest claptest_hh
+	claptest_bd claptest claptest_hh
+	claptest_bd claptest claptest_hh
+
+

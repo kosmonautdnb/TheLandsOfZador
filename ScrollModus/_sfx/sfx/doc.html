@@ -1,0 +1,310 @@
+<html>
+<head>
+	<style>
+		body {
+			background-color: #201008;
+			color: #e0e0e0;
+			font-family: Georgia;	
+			max-width: 700px;
+			margin:auto;
+		}	
+		
+		h1 {
+			margin-top: 1.5em;
+			font-family: Consolas;	
+		}
+
+		h2 {
+			margin-top: 5em;
+			font-family: Consolas;	
+		}
+		
+		pre, code {
+			font-family: Consolas;
+			color: #f8e080;	
+		}
+        
+        a {
+			color: #f8e080;	
+            text-decoration: none;
+            
+        }
+		
+		p {
+			line-height: 1.3em;	
+		}
+		
+		b {
+			color: #f8e080;	
+		}
+		
+		li {
+			margin-bottom: 10px;
+		} 
+		
+	</style>
+</head>
+<body>
+
+
+<h1>Knaecketracker v0.2</h1>
+<small>(c) 2015 by degauss/bauknecht^tek
+<p>
+This is a protracker-ish tool i made to create music for the +4 megademo "rocket-science" mad, nero and i made for evoke 2014 and ranked #1. This software is practically a user-interface that turns protracker-like structured musical data into asm-sourcefiles - which in turn get assembled by <a href="http://dasm-dillon.sourceforge.net/" target="_blank">DASM</a> and played back with <a href="https://tedplay.codeplex.com/" target="_blank">TEDplay</a> (by Attila Grosz). Therefore, both these tools are part of the setup-package, copyright applies to the respective creators.
+</p>
+<p>First of all i have to say everything starting with the player-routine up to the tracker is hacked together without even trying to meet demands that apply to proper-software. Its actually a big hack full of bugs. I'm releasing it solely because its better than having no tracker at all. So be aware of anything especially the following:
+<ul>
+<li>The tool is far from beeing easy-to-use or idiot-proof</li>
+<li>I won't have time to really support this software, you will have to take it as it is</li>
+<li>Updates for this software might certainly not be backwards-compatible. Your old songs might not work in newer versions of this software</li>
+<li>Playback has no visual feedback in the editor. You won't see whats currently playing</li>
+<li>The player-routine is quite huge and quite slow.</li>
+<li>There are bugs and feature-gaps everywhere (e.g. no pattern-transpose,glideup/down, etc...)</li>
+<li>Not all features of the playback-routine are exposed to the tracker. There are still a lot of control-commands you currently cannot access through the tracker.</li>
+<li>The player-routine and editor might have their strengths in the percussive area, but they have weaknesses in the harmonic-department.</li>
+</ul>
+Instead of just reading this document i'd like to encourage you to play around with the sample-songs i packaged with this software.
+</p>
+	
+<h2>Introduction</h2>
+<p>
+While creating a song, you will come across three central concepts. First of all, your music will be played by <b>instruments</b>. An instrument can be: a snaredrum or any other percussive sound, noise, a lead-voice, a major chord or whatever you are able to model with this tool.
+</p>
+
+<p>
+Your instruments get played in little pieces of music called <b>patterns</b>. A pattern is nothing else then time sliced into a number of pieces, with every piece beeing able to either trigger an instrument to play (at a specific pitch and a specific volume) or to play nothing. You can think of a pattern as the lego-blocks from which you build your musical house/spaceship/whatever.
+</p>
+ 
+<p>
+A series of patterns, played one after another is called a <b>sequence</b>. In this tool, one step of the sequence is formed by three patterns, so a series of pattern-triplets form a sequence. Its three patterns mainly for technical reasons, but theres a practical side to it: Common popular music has at its core three elements: drums, a baseline or some accompanied music and a lead-voice. 
+</p>
+
+
+
+<h2>Notation</h2>
+
+<p>
+All numeric values are expressed in hexdecimal format. Instruments and Patterns all have a number and get addressed by it.
+</p>
+
+<p>Pitches are displayed by their name (e.g. <code>c#3</code>). Entering pitches is done in a special way: A claviature is mimicked on your normal computer keyboard. Key "c" means <code>e-0</code>, "v" means <code>f-0</code>, g means <code>f#0</code>, etc... Give it a try! What might sound complicated has eventually a very natural feel to it.
+</p>
+
+<p>Everywhere you are able to enter pitches you can fine-tune them by typing <code>ctrl+plus</code> or <code>ctrl+minus</code>. There are 4 steps between each semitone. You can use the fine-tune to create soft glideup/glidedowns or vibrato-effects.</p>
+
+<p>
+Looking at the Instrument-Editor you will see there is another way to display pitches. Hitting the <code>Pitch/Hex</code>-Button you can toggle between note-names or their numerical expressions.</p>
+
+<p>
+Pitches are expressed as 8-bit numbers between $00 and $FF. Values from $00 - $BF address frequencies of equal-temperament. Values from $C0 - $FF address TED-register-values from $03c0 to $03ff. This was made with regard to a) how harmonic sounds can hardly be formed in the upper value range and b) to the fact that percussive sounds require exact control over the upper-value range.
+</p>
+
+<p>
+All-in-all every tracker looks somewhat like an excel-sheet. This means that all you do is writing/editing lists. The more you go down a list, the later in time the event is you are editing. All lists in the tracker can be "looping". This means you set a starting point and an ending point and the music-element (be it instrument, pattern or sequence) will loop in that range. To be precise it is mandatory to set a looping point.
+</p>
+
+
+<h2>Instruments</h2>
+
+<p>
+Instruments a described with two seperate lists. There is one list that controls tone-generation and another list that controls volume. Both lists are processed independently. First we'll take a look at the volume-control. 
+</p>
+
+<p>
+The volume-control-list has only two columns which reside on the right side of the instrument editor. The column <code>VOL</code> holds the actual volume-information. Possible volume-values are $0-$F. The <code>LE</code>-Column defines the looping-point (start) marked with an "l" and the end-point marked with an "e". To set the looping-points you just need to type the corresponding letters. A typical volume-envelope (start loud, fade out, stop) would look like this:
+</p>
+<pre>
+F
+E
+D
+C
+B
+A
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0 le
+</pre>
+<p>(Volume starts at max. value, then decays until zero. Loop start and end is at volume 0, making the volume-control stop here.)</p>
+
+<p>
+The oscillator-control-list has three columns. The <code>FRQ</code> column specifies at what pitch/frequency the tone-generator should play. The <code>LE</code>-column again defines a loop for the instrument. The "CTRL"-column displays two letters that indicate how tone-generation is modified. the first letter specifies the kind of oscillator: it can be either <code>P</code> for pulse-waveform, <code>N</code> for noise-generator or "X" for no-sound. The second letter specifies if the oscillator should play at the specified, fixed pitch (<code>F</code>) or if the pitch is to be transposed (<code>T</code>). Percussive instruments normally use fixed pitches while harmonic instruments need transposition. An Example:
+</p>
+
+<pre>
+NF C0
+PT 00 l
+PT 01  e
+</pre>
+<p>(This should mimic an organ-sound with a characteristic click-sound on every key-hit. the click is modelled with the noise-generator, the frequency should not be transposed. after the click there are two rows of transposable pulse-waveform-sound - the organ's sound. Its looping between a clean <code>c-0</code> and a slightly uptuned <code>c-0+1</code>, forming a fast vibrato.
+</p>
+
+<p>Lastly there are three buttons above the lists that need explanation: The <code>Pitch/Hex</code>-Button toggles how pitches get displayed (note-name or hex-value). <code>L</code> and <code>S</code> let you load or store an instrument.
+</p>
+
+<h2>Patterns</h2>
+
+<p>The pattern-editor shows three patterns side-by-side. The three patterns are tagged <code>A, B and M</code>. In this chapter we will only look at the A-Pattern and its columns<p/>
+	
+<p>
+You could look at every row in a pattern as a quarter-note. So for every quarter-note you have four columns to edit. The first is IA which means which instrument should be triggered at that point in time. You either specify one of the instrument-numbers or hit <code>del</code> to clear the entry (it will show <code>--</code> then, meaning no instrument will be triggered). Triggering an instrument means to play its oscillator and volume-control-lists from start. <code>ctrl+plus</code> and <code>ctrl+minus</code> also work here to transpose a single note. In addition to this <code>shift+ctrl+plus</code> and <code>shift+ctrl+minus</code> lets you transpose the entire pattern.
+</p>
+
+<p>
+The <code>VA</code>-column defines the amplification/volume at this quarter-note. If you set it to $F, the instrument will be played at the volume-levels you defined in the instrument. A value of $8 means to play the instrument at half the volume. You can set volume-levels at any time, also when no instrument is triggered. The <code>VA</code>-column rather describes how the volume of channel A gets modified. Del-Key clears the entry.
+</p>
+
+<p>
+The <code>NA</code>-Column defines the pitch the instrument is transposed to. You can set pitches at any time, even when there is no instrument triggered. Del-Key clears the entry.
+</p>
+
+<p>
+The <code>CA</code>-column defines the loop-points as you have already seen in the instruments section.
+</p>
+
+<p>
+There are two special hotkeys you can use here: <code>ctrl+i</code> inserts a row within the current pattern while <code>ctrl+d</code> deletes one row.
+</p>
+
+
+<h2>Sequence</h2>
+
+<p>From everything you have read until now you should already be able to guess how the sequence works: You just set the pattern-numbers of <code>A, B and M</code> and define loop-points. There is nothing more to it...</p>
+
+<p>
+As with the patterns there are two hotkeys you can use here: <code>ctrl+i</code> inserts a row within the current pattern while <code>ctrl+d</code> deletes one row.
+</p>
+
+<h2>A, B and M</h2>
+    
+<p>
+Since TED has only two voices and just a single volume control, creating music is quite a challenge. Knaecketraeckers playerback-routine - as most other playback-routines floating around - tries to help these limitations become less unhandy. It adds a third virtual voice that acts like a layer on top of the other two voices and has special logic how to manage volume. 
+</p>
+
+<p>
+I've given the three voices letter-names A,B and M. The A voice maps directly to TED-voice 0. This means: Either pulse or off. The B voice maps directly to TED-voice 1, meaning that you can use pulse and noise-waveforms here. M is for "mix-in" and is a virtual voice that tries to use priorities and gaps in the other voices to mix in sounds from this voice. A practical example is probably a hihat playing every quarter-note: It would get mixed into voice B.
+</p>
+
+<p>Volume is handled so that the loudest voice sets the global-volume. If the volume of the two physical voices differs too much, the voice with the lower volume gets turned off.  Sounds complicated but that way i tried to remain the possibility to have individual volumes for each channel. I think it actually works quite well. Also mind that turning off one of the waveform-generators is NOT treated as silence, since you can use gaps in the waveform to create interesting sounds. If the playback-routine would use turned-off voices as an opportunity to "mix in", it would kill these opportunities. </p>	
+   
+    <p>Volume-levels within the tracker are expressed as numbers from $0 to $f. Since TED only has 8 distinct volume levels, the playback-routine maps the trackers value-range to hardware-volume-levels using a table for the volume-dynamics.</p>
+    
+<p>
+Under most circumstances you can edit your music as if there really were three voices. You will however notice artifacts, especially in densely tracked patterns. You can always try to reallocate the patterns from A,B and M and check what configuration sounds best.
+</p>
+	
+<h2>Song-Settings</h2>
+
+<p>There are a number of per-song settings that affect differents aspects of the sound-generation:</p>
+
+<ul>
+	<li><code>Ticks/Frame</code> defines how many times per frame the player-routine gets executed, and additionally how many times per frame the sound-registers of TED get updated. A higher value means more possibilities regarding sound-effects but also a higher resource-consumption (raster-time, memory).
+	</li>
+	
+	<li><code>Pat.Len</code> defines the maximum length of a pattern, regardless of your loop-points. That way, it controls when the sequence advances one step further.</li>
+	
+	<li><code>Groove-Length</code> and <code>Groove</code>: Instead of just having a single tempo value for the entire song you can have up to 8 values that define the number of ticks each row (or quarter note if you like) within a pattern takes. This is mainly important for playing a song with "shuffle", or "groove". 
+	</li>
+	
+</ul>
+
+
+<h2>Main Functions</h2>
+
+<p>Heres a list describing the functions of the button-group on the left side of the program-window</p>
+
+<ul>
+	<li><code>New/Load/Save/Save As</code> should be self explanatory. This is all about editable Knaecketraecker-Files (*.kps)
+	</li>
+	
+	<li><code>Play</code> plays the song from its current position (as it is highlighted in the sequence-section</li>
+	
+	<li><code>Play Pat</code> plays only the current pattern-triplet (as it is highlighted in the sequence-section</li>
+
+	<li><code>Play All</code> plays the entire song</li>
+	<li><code>Stop</code> stops playback</li>
+	
+	<li><code>Upper Oct/Lower Oct</code> toggles the octave in which the claviature-like input is made</li>
+
+	<li><code>Copy Pat/Copy Ins/Copy Osc/Copy Vol</code> copies either Patterns, Instruments or just Oscialltor or Volume-Control-Lists around. Each button will show a dialog asking for from- and to-Numbers.</li>
+
+	<li><code>Export Asm</code> exports the song, including playback code into a DASM-sourcefile.</li>
+
+	<li><code>Export Bin</code> exports the song (optionally including playback code) into a binary-file with a given load-address. How to do playback in your program is shown in the respective chapter within this documentation
+	</li>
+	
+	<li><code>Export Prg</code> just exports an executable that contains the song, playback-code and some driver-code to play the song</li>
+	
+</ul>
+
+
+<h2>Playback</h2>
+
+<p>To play a song you previously exported via the Export Asm or Export Bin functions you need to call three different subroutines:
+</p>
+
+<p>Before you can play the song, the player needs to be initialized. The init-routine is addressable at offset $0000: 
+<pre>
+	...
+	jsr [mysong+$0000] ; call the init-routine
+	...
+	
+mysong
+	include "mysong.asm"
+	
+	or
+	
+	incbin "mysong.bin"
+</pre>
+</p>
+
+<p>
+Once a frame you need to let the player-code process the musical-data, regardless at what ticks/frame-rate the song is. So even for a 4x-song you just need to call the "tick"-routine once. The tick-routine doesn't set any TED-registers, it just prepares them in an internal buffer. The tick-routine's address-offset is $0003:
+<pre>
+	jsr [mysong+$0003]
+</pre>
+</p>
+
+<p>
+Setting the TED-registers requires a third subroutine to be called. The routine is located at offset $0006 and needs to be called as often as it was specified in the ticks/frame-setting. E.g. for a 4x-song, you should call this routine four times a frame - preferably at evenly distributed rasterlines. The example below isn't evenly distributed but you should get the point:
+<pre>
+	lda #$00
+.0	cmp $ff1d
+	bne .0	
+	jsr [mysong+$0006]
+	...
+
+	lda #$40
+.1	cmp $ff1d
+	bne .1
+	jsr [mysong+$0006]
+	...
+
+	lda #$80
+.2	cmp $ff1d
+	bne .2	
+	jsr [mysong+$0006]
+	...
+
+	lda #$c0
+.3	cmp $ff1d
+	bne .3	
+	jsr [mysong+$0006]
+	...
+	
+</pre>
+
+</p>
+
+<h2>Last words</h2>
+
+<p>I'm hoping you will have fun using this tool - regardless of all its drawbacks. Also i' like to thank the authors of <a href="http://dasm-dillon.sourceforge.net/" target="_blank">DASM</a> and <a href="https://tedplay.codeplex.com/" target="_blank">TEDplay</a> for the great software they have created. If you like to contact me:  <a href="mailto:ingo@jache.de">ingo@jache.de</a> </p>
+
+</body>
+</html>

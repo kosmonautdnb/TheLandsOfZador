@@ -1,0 +1,436 @@
+------- FILE driver.asm LEVEL 1 PASS 2
+      1  5798					      processor	6502
+      2  5798 ????
+      3  1001					      ORG	$1001
+      4  1001		       0b 10 00 00	      DC.W	$100B,0
+      5  1005		       9e 34 31 30*	      DC.B	$9E,"4109",0,0,0	; SYS4107
+      6  100d		       4c 00 57 	      JMP	main
+      7  1010
+      8  1010
+      9  1800					      org	$1800,$00
+     10  1800
+------- FILE fw_interface.asm LEVEL 2 PASS 2
+      0  1800					      include	"fw_interface.asm"
+      1  1800		       02 00	   fw_jumptable EQU	$0200
+      2  1800
+      3  1800
+      4  1800		       02 00	   fw_load    EQU	fw_jumptable + 0
+      5  1800		       02 03	   fw_decrunch EQU	fw_jumptable + 3
+      6  1800		       02 06	   fw_topirq_install EQU	fw_jumptable + 6
+      7  1800		       02 09	   fw_topirq_handler EQU	fw_jumptable + 9
+      8  1800
+      9  1800		       02 0c	   fw_lowirq_install EQU	fw_jumptable + 12
+     10  1800		       02 0f	   fw_lowirq_handler EQU	fw_jumptable + 15
+     11  1800
+     12  1800		       02 12	   fw_initplayer EQU	fw_jumptable + 18
+     13  1800
+     14  1800
+     15  1800		       02 15	   fw_settings EQU	fw_jumptable + 21
+     16  1800
+     17  1800
+     18  1800		       02 15	   fw_framecounter EQU	fw_settings + 0
+     19  1800		       02 17	   fw_bgcolor EQU	fw_settings + 2
+     20  1800
+     21  1800		       02 18	   fw_isloading EQU	fw_settings + 3
+     22  1800		       02 19	   fw_isdecrunching EQU	fw_settings + 4
+     23  1800
+     24  1800		       02 1a	   fw_singleclock EQU	fw_settings + 5
+     25  1800
+     26  1800		       02 1b	   fw_topirq_rasterline EQU	fw_settings + 6
+     27  1800		       02 1d	   fw_topirq_plugin EQU	fw_settings + 8
+     28  1800
+     29  1800		       02 1f	   fw_lowirq_rasterline EQU	fw_settings + 10
+     30  1800		       02 21	   fw_lowirq_plugin EQU	fw_settings + 12
+     31  1800
+     32  1800		       02 23	   fw_load_start EQU	fw_settings + 14
+     33  1800		       02 25	   fw_load_end EQU	fw_settings + 16
+     34  1800
+     35  1800		       02 27	   fw_song_off EQU	fw_settings + 18
+     36  1800
+     37  1800		       02 28	   kp_pattern_counter EQU	fw_settings + 19
+     38  1800		       02 29	   kp_beat_counter EQU	fw_settings + 20
+     39  1800		       02 2a	   kp_pulse_var EQU	fw_settings + 21
+     40  1800		       02 2b	   kp_pulse_callback EQU	fw_settings + 22
+     41  1800		       02 2d	   kp_volumetable_address EQU	fw_settings + 24
+     42  1800
+     43  1800					      MAC	wait_framenumber
+     44  1800
+     45  1800					      lda	#<{1}
+     46  1800					      cmp	fw_framecounter
+     47  1800					      bne	.0
+     48  1800					      lda	#>{1}
+     49  1800					      cmp	fw_framecounter+1
+     50  1800				   .0
+     51  1800					      ENDM
+     52  1800
+     53  1800
+     54  1800
+     55  1800					      MAC	wait_framenumber_or_higher
+     56  1800
+     57  1800				   .0
+     58  1800					      lda	fw_framecounter+1
+     59  1800					      cmp	#>{1}
+     60  1800					      bcs	.1
+     61  1800					      jmp	.0
+     62  1800				   .1
+     63  1800					      lda	fw_framecounter
+     64  1800					      cmp	#<{1}
+     65  1800					      bcs	.2
+     66  1800					      jmp	.0
+     67  1800				   .2
+     68  1800
+     69  1800					      ENDM
+     70  1800
+     71  1800
+     72  1800
+     73  1800					      MAC	wait_vblank
+     74  1800
+     75  1800					      lda	fw_framecounter
+     76  1800				   .0	      cmp	fw_framecounter
+     77  1800					      beq	.0
+     78  1800
+     79  1800					      ENDM
+     80  1800
+     81  1800
+     82  1800					      MAC	topirq_install_plugin
+     83  1800
+     84  1800					      lda	#<{1}
+     85  1800					      sta	fw_topirq_plugin
+     86  1800					      lda	#>{1}
+     87  1800					      sta	fw_topirq_plugin+1
+     88  1800
+     89  1800					      ENDM
+     90  1800
+     91  1800
+     92  1800
+     93  1800					      MAC	topirq_remove_plugin
+     94  1800
+     95  1800					      lda	#$00
+     96  1800					      sta	fw_topirq_plugin
+     97  1800					      sta	fw_topirq_plugin+1
+     98  1800
+     99  1800					      ENDM
+    100  1800
+    101  1800
+    102  1800					      MAC	lowirq_install_plugin
+    103  1800
+    104  1800					      lda	#<{1}
+    105  1800					      sta	fw_lowirq_plugin
+    106  1800					      lda	#>{1}
+    107  1800					      sta	fw_lowirq_plugin+1
+    108  1800
+    109  1800					      ENDM
+    110  1800
+    111  1800
+    112  1800
+    113  1800					      MAC	lowirq_remove_plugin
+    114  1800
+    115  1800					      lda	#$00
+    116  1800					      sta	fw_lowirq_plugin
+    117  1800					      sta	fw_lowirq_plugin+1
+    118  1800
+    119  1800					      ENDM
+    120  1800
+    121  1800
+    122  1800
+    123  1800					      MAC	plugin_canceldefault
+    124  1800
+    125  1800					      pla
+    126  1800					      pla
+    127  1800
+    128  1800					      ENDM
+------- FILE driver.asm
+------- FILE fw_bootstrap.asm LEVEL 2 PASS 2
+      0  1800					      include	"fw_bootstrap.asm"
+      1  1800		       00 8f	   ZP_USEBIOSLOADING =	$8f	; 1 ; also defined in player.asm and fw_bootstrap.asm
+      2  1800
+      3  1800				   fw_init    SUBROUTINE
+      4  1800
+      5  1800		       d0 2b		      bne	.skip_loader_init
+      6  1802
+      7  1802		       a9 08		      LDA	#$08
+      8  1804		       85 ae		      STA	$AE
+      9  1806
+     10  1806		       20 ad 3b 	      jsr	fw_initloader
+     11  1809		       90 0d		      bcc	.loader_ok
+     12  180b
+     13  180b		       a9 01		      lda	#$01
+     14  180d		       85 8f		      sta	ZP_USEBIOSLOADING
+     15  180f		       4c 18 18 	      jmp	.loader_ok	; 7
+     16  1812
+     17  1812							;ldy #$10
+     18  1812							;ldx #$ff
+     19  1812				   .y
+     20  1812		       ee 19 ff 	      inc	$ff19
+     21  1815		       ca		      dex
+     22  1816		       d0 fa		      bne	.y
+     23  1818							;dey
+     24  1818							;bne .y ; 7
+     25  1818
+     26  1818				   .loader_ok
+     27  1818							;--------------------------
+     28  1818							; warteschleife
+     29  1818							;--------------------------
+     30  1818		       78		      sei
+     31  1819		       a2 28		      ldx	#$28
+     32  181b
+     33  181b				   .wait2
+     34  181b		       a9 cd		      lda	#$cd
+     35  181d				   .wait0
+     36  181d		       cd 1d ff 	      cmp	$ff1d
+     37  1820		       d0 fb		      bne	.wait0
+     38  1822
+     39  1822		       a9 cf		      lda	#$cf
+     40  1824				   .wait1
+     41  1824		       cd 1d ff 	      cmp	$ff1d
+     42  1827		       d0 fb		      bne	.wait1
+     43  1829
+     44  1829		       ca		      dex
+     45  182a		       d0 ef		      bne	.wait2
+     46  182c		       58		      cli
+     47  182d							;--------------------------
+     48  182d
+     49  182d
+     50  182d				   .skip_loader_init
+     51  182d
+     52  182d
+     53  182d
+     54  182d		       78		      sei
+     55  182e		       8d 3f ff 	      sta	$FF3F
+     56  1831
+     57  1831		       a9 4c		      lda	#$4c
+     58  1833		       8d f6 ff 	      sta	$fff6
+     59  1836
+     60  1836		       a2 00		      ldx	#$00
+     61  1838		       a0 00		      ldy	#$00
+     62  183a		       b9 81 3f    .0	      lda	fw_image_begin,y
+     63  183d		       99 00 02    .1	      sta	$0200,y
+     64  1840		       c8		      iny
+     65  1841		       d0 07		      bne	.nowrap
+     66  1843		       ee 3c 18 	      inc	.0+2
+     67  1846		       ee 3f 18 	      inc	.1+2
+     68  1849		       e8		      inx
+     69  184a				   .nowrap
+     70  184a		       c0 f0		      cpy	#<fw_image_size
+     71  184c		       d0 ec		      bne	.0
+     72  184e		       e0 15		      cpx	#>fw_image_size
+     73  1850		       d0 e8		      bne	.0
+     74  1852
+     75  1852		       20 5f 18 	      jsr	fw_z4init
+     76  1855		       a9 00		      lda	#$00
+     77  1857		       4c 12 02 	      jmp	fw_initplayer
+     78  185a		       60		      rts
+     79  185b
+     80  185b				   fw_run     SUBROUTINE
+     81  185b		       20 0c 02 	      jsr	fw_lowirq_install
+     82  185e		       60		      rts
+     83  185f
+     84  185f
+     85  185f				   fw_z4init  SUBROUTINE
+     86  185f		       78		      sei
+     87  1860		       a9 81		      lda	#<fw_z4timing
+     88  1862		       8d fe ff 	      sta	$fffe
+     89  1865		       a9 18		      lda	#>fw_z4timing
+     90  1867		       8d ff ff 	      sta	$ffff
+     91  186a		       a9 02		      lda	#2	;raster irq
+     92  186c		       8d 0a ff 	      sta	$ff0a
+     93  186f		       a9 05		      lda	#5
+     94  1871		       8d 0b ff 	      sta	$ff0b
+     95  1874		       ad 09 ff 	      lda	$ff09
+     96  1877		       8d 09 ff 	      sta	$ff09
+     97  187a		       58		      cli
+     98  187b
+     99  187b		       ad d5 18    .w	      lda	.counter	; wait
+    100  187e		       f0 fb		      beq	.w
+    101  1880		       60		      rts
+    102  1881
+    103  1881				   fw_z4timing
+    104  1881		       8d d3 18 	      sta	tempa
+    105  1884		       ad 1e ff 	      lda	$ff1e	;stabilizaljuk a rasztert
+    106  1887		       4a		      lsr
+    107  1888		       4a		      lsr
+    108  1889		       8d 8d 18 	      sta	reljump
+    109  1889		       18 8d	   reljump    =	.+1
+    110  188c		       10 00		      bpl	.+2	;vigyazni kell, hogy a kov. nop ugyanebben
+    111  188e		       c9 c9		      cmp	#$c9	;a 256 byteos blokkban legyen, kulonben
+    112  1890		       c9 c9		      cmp	#$c9	;elromlik az idozites!
+    113  1892		       c9 c9		      cmp	#$c9
+    114  1894		       c9 c9		      cmp	#$c9
+    115  1896		       c9 c9		      cmp	#$c9
+    116  1898		       c9 c5		      cmp	#$c5
+    117  189a		       ea		      nop
+    118  189b							; stabil!
+    119  189b
+    120  189b		       2c ff ff 	      bit	$ffff	;53 cycle
+    121  189e		       2c ff ff 	      bit	$ffff
+    122  18a1		       2c ff ff 	      bit	$ffff
+    123  18a4		       2c ff ff 	      bit	$ffff
+    124  18a7		       2c ff ff 	      bit	$ffff
+    125  18aa		       2c ff ff 	      bit	$ffff
+    126  18ad		       2c ff ff 	      bit	$ffff
+    127  18b0		       2c ff ff 	      bit	$ffff
+    128  18b3		       2c ff ff 	      bit	$ffff
+    129  18b6		       2c ff ff 	      bit	$ffff
+    130  18b9		       2c ff ff 	      bit	$ffff
+    131  18bc		       2c ff ff 	      bit	$ffff
+    132  18bf		       24 ff		      bit	$ff
+    133  18c1		       ea		      nop
+    134  18c2
+    135  18c2		       a9 c8		      lda	#<(8*57)
+    136  18c4		       8d 00 ff 	      sta	$ff00
+    137  18c7		       a9 01		      lda	#>(8*57)
+    138  18c9		       8d 01 ff 	      sta	$ff01
+    139  18cc
+    140  18cc		       8d d5 18 	      sta	.counter
+    141  18cf
+    142  18cf		       ee 09 ff 	      inc	$ff09
+    143  18cf		       18 d3	   tempa      =	.+1
+    144  18d2		       a9 00		      lda	#0
+    145  18d4		       40		      rti
+    146  18d5
+    147  18d5				   .counter
+    148  18d5		       00		      dc.b	$00
+    149  18d6
+    150  18d6
+------- FILE fw_bootstrap_loader.asm LEVEL 3 PASS 2
+      0  18d6					      include	"fw_bootstrap_loader.asm"
+------- FILE loadersymbols.inc LEVEL 4 PASS 2
+      0  18d6					      include	"loadersymbols.inc"
+      1  18d6							; zeropage
+      2  18d6		       00 08	   loadaddrlo =	$08
+      3  18d6		       00 08	   loader_zp_first =	$08
+      4  18d6		       00 09	   loadaddrhi =	$09
+      5  18d6		       00 0a	   endaddrlo  =	$0a
+      6  18d6		       00 0b	   endaddrhi  =	$0b
+      7  18d6		       00 0d	   loader_zp_last =	$0d
+      8  18d6
+      9  18d6							; resident
+     10  18d6		       02 30	   openfile   =	$0230
+     11  18d6		       02 93	   pollblock  =	$0293
+     12  18d6
+     13  18d6							; install
+     14  18d6		       3b ad	   install    =	$3bad
+------- FILE fw_bootstrap_loader.asm
+      2  18d6
+      3  18d6
+      4  2bfe					      org	$2c00 - 2	; incbin funktioniert nicht richtig :(
+      5  2bfe					      incbin	"install.prg"
+      6  3f7f
+      7  3f7f		       3b ad	   fw_initloader =	install
+------- FILE fw_bootstrap.asm
+    152  3f7f
+    153  3f7f				   fw_image_addr
+    154  3f7f		       3f 81	   fw_image_begin =	.+2
+    155  3f7f					      incbin	"framework.prg"
+    156  3f7f		       15 f0	   fw_image_size =	.-fw_image_begin
+    157  5571
+    158  5600		       00 00 00 00*	      align	256,0
+    159  5600				   fw_bamtemp
+    160  5600		       00 00 00 00*	      ds.b	256,0
+    161  5700
+ fw_bamtemp  $5600
+    162  5700					      echo	"fw_bamtemp ", fw_bamtemp
+    163  5700							;echo "fw_files", fw_files
+------- FILE driver.asm
+     13  5700
+     14  5700				   main       SUBROUTINE
+     15  5700		       a9 00		      lda	#$00
+     16  5702		       20 00 18 	      jsr	fw_init
+     17  5705
+     18  5705		       ee 19 ff 	      inc	$ff19
+     19  5708		       78		      sei
+     20  5709		       8d 3f ff 	      sta	$ff3f
+     21  570c
+     22  570c		       a0 10		      ldy	#$10
+     23  570e		       a9 00		      lda	#$00
+     24  5710		       99 00 00    .0	      sta	$0000,y
+     25  5713		       c8		      iny
+     26  5714		       d0 fa		      bne	.0
+     27  5716
+     28  5716		       20 5b 18 	      jsr	fw_run
+     29  5719		       8d 3f ff 	      sta	$ff3f
+     30  571c		       58		      cli
+     31  571d
+     32  571d		       4c 20 57 	      jmp	startdemo
+     33  5720
+     34  5720				   demopart
+     35  5720					      incbin	"demopart.prg"
+     36  5720				   demopart_end
+     37  5720
+     38  5720				   startdemo  SUBROUTINE
+     39  5720
+     40  5720		       ad 20 57 	      lda	demopart
+     41  5723		       8d 40 57 	      sta	.dst+1
+     42  5726		       8d 96 57 	      sta	.jmp+1
+     43  5729		       ad 21 57 	      lda	demopart+1
+     44  572c		       8d 41 57 	      sta	.dst+2
+     45  572f		       8d 97 57 	      sta	.jmp+2
+     46  5732
+     47  5732		       a9 22		      lda	#<[demopart+2]
+     48  5734		       8d 3d 57 	      sta	.src+1
+     49  5737		       a9 57		      lda	#>[demopart+2]
+     50  5739		       8d 3e 57 	      sta	.src+2
+     51  573c
+     52  573c
+     53  573c				   .src
+     54  573c		       ad 20 57 	      lda	demopart
+     55  573f
+     56  573f				   .dst
+     57  573f		       8d ff 0f 	      sta	$0fff
+     58  5742
+     59  5742		       ee 3d 57 	      inc	.src+1
+     60  5745		       d0 03		      bne	.1
+     61  5747		       ee 3e 57 	      inc	.src+2
+     62  574a
+     63  574a				   .1
+     64  574a		       ee 40 57 	      inc	.dst+1
+     65  574d		       d0 03		      bne	.2
+     66  574f		       ee 41 57 	      inc	.dst+2
+     67  5752
+     68  5752				   .2
+     69  5752		       ad 3d 57 	      lda	.src+1
+     70  5755		       c9 20		      cmp	#<demopart_end
+     71  5757		       d0 e3		      bne	.src
+     72  5759		       ad 3e 57 	      lda	.src+2
+     73  575c		       c9 57		      cmp	#>demopart_end
+     74  575e		       d0 dc		      bne	.src
+     75  5760
+     76  5760		       58		      cli
+     77  5761
+     78  5761		       a0 00		      ldy	#$00
+     79  5763		       a9 80		      lda	#$80
+     80  5765				   .wait70
+     81  5765		       cd 1d ff 	      cmp	$ff1d
+     82  5768		       d0 fb		      bne	.wait70
+     83  576a		       ad 1d ff 	      lda	$ff1d
+     84  576d				   .wait71
+     85  576d		       cd 1d ff 	      cmp	$ff1d
+     86  5770		       f0 fb		      beq	.wait71
+     87  5772		       c8		      iny
+     88  5773		       d0 f0		      bne	.wait70
+     89  5775
+     90  5775
+     91  5775		       ae 28 02 	      ldx	kp_pattern_counter
+     92  5778				   .wait_pattern
+     93  5778		       a9 80		      lda	#$80
+     94  577a				   .wait80
+     95  577a		       cd 1d ff 	      cmp	$ff1d
+     96  577d		       d0 fb		      bne	.wait80
+     97  577f		       ad 1d ff 	      lda	$ff1d
+     98  5782				   .wait81
+     99  5782		       cd 1d ff 	      cmp	$ff1d
+    100  5785		       f0 fb		      beq	.wait81
+    101  5787
+    102  5787		       ec 28 02 	      cpx	kp_pattern_counter
+    103  578a		       f0 ec		      beq	.wait_pattern
+    104  578c
+    105  578c		       a2 50		      ldx	#$50
+    106  578e		       a0 13		      ldy	#$13
+    107  5790		       a9 01		      lda	#$01
+    108  5792		       20 12 02 	      jsr	fw_initplayer
+    109  5795
+    110  5795				   .jmp
+    111  5795		       4c fd 1f 	      jmp	$1ffd
+    112  5798
+ demopart end:  $5798
+    113  5798					      echo	"demopart end: ",.

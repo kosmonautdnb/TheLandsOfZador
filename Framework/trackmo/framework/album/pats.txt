@@ -1,0 +1,214 @@
+@instrument beng2
+@frq
+
+@loop
+	px	$3a0
+	pt	$313
+	px	$3a0
+	pt	$313
+
+
+@vol
+	$0f .4
+	$08 .4
+	$06 .2 
+	$04 .4 
+	$02 .4 
+	$01 .4
+@loop
+	$00 .2 
+
+
+@instrument beng
+@frq
+
+@loop
+	pt	$3f3
+	xt	$00 
+	pt	$3f3
+	xt	$00 
+
+
+@vol
+	$0f
+	$0c .4
+	$08 .4
+	$06 .2 
+	$04 .4 
+	$02 .4 
+	$01 .4
+@loop
+	$00 .2 
+
+
+@instrument pling
+@frq
+@loop
+	pt	c1
+
+
+@vol
+	$0c  .
+	$03 .2
+@loop
+	$00 .2 
+
+@pattern pl @crlfwait_off
+@loop
+	d0 beng v=0 .4
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+
+	d0 beng .4
+	d#0 beng .4
+	d0 beng .4
+	d0 beng .4
+
+	d0 beng .4
+	c#0 beng .4
+	d#0 beng .4
+	d0 beng .4
+
+	e2 beng .4
+	d#0 beng .4
+	d0 beng .4
+	d0 beng .4
+@stop
+
+
+
+@pattern pr0 @crlfwait_off
+@loop
+	bd .6
+	hh .2
+	bd .4
+	hh .4
+	
+	bd .6
+	hh .2
+	bd .4
+	hh .4
+
+	bd .6
+	hh .2
+	bd .4
+	hh .4
+
+	bd .6
+	hh .2
+	bd .4
+	hh .4
+	
+@stop
+
+
+@pattern prz @crlfwait_off
+@loop
+	bd v=0 .8
+@stop
+
+
+@pattern pr @crlfwait_off
+@loop
+	bd v=0 .6
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .6
+	sn .2
+	bd v=0 .2
+	hh3 .4
+	hh .2
+	
+@stop
+
+
+@pattern pr2 @crlfwait_off
+@loop
+	bd v=0 .4
+	hh4 .2
+	hh .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .4
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	hh3 .2
+	bd v=0 .2
+	sn .2
+	hh .2
+	hh2 .2
+	
+	bd v=0 .4
+	hh4 .2
+	sn .2
+	bd v=0 .2
+	hh3 .4
+	hh .2
+	
+@stop
+
+
+
+@pattern px @crlfwait_off
+@loop
+	d2 pling v=0 .2
+@stop
+
+
+
+
+
+
+@pattern claptest_beng_fi @crlfwait_off
+	bd .4
+	c#0 beng .4
+	bd .2
+	e#3 beng .4
+	e0 sq .2
+	bd .4
+	c#0 beng .4
+	bd .2
+	c#0 beng .4
+	bd .2
+
+
+	bd .4
+	c0 beng .4
+	bd .4
+	c3 beng .4
+	bd .4
+	e0 beng .4
+	bd .2
+	e0t+1 sq .2
+	c#0 beng .2
+	bd .2
+@loop
+	bd .8
+@stop

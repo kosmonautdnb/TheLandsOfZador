@@ -1,0 +1,220 @@
+@instrument bd
+@frq
+	pu	$28
+		$18
+		$04
+		$00
+
+	p	$3fc
+	x	$00 
+	p	$3fc 
+	x	$00 
+	p	$3fc 
+@loop
+	x	$00 
+	
+
+@vol
+	$0f
+	$0d .
+	$0c .4
+	$0a .4 
+	$06 .2 
+	$04 .1 
+	$02 .1 
+	$01 .1
+@loop
+	$00 .2 
+
+
+
+
+@instrument bd2
+@frq
+	un  $3f0
+	pu	$38
+		$20
+		$18
+		$04
+		$00
+
+	p	$3fb
+	x	$00 
+	p	$3fa 
+	x	$00 
+	p	$3f9 
+	x	$00 
+
+@loop
+	p	$3fd
+	x	$00 
+	
+
+
+@vol
+	$0f
+	$0c .2
+	$08 .2 
+	$06 .2 
+	$04 .1 
+	$02 .1 
+	$04 .4
+@loop
+	$00 .2 
+
+
+
+@instrument sn
+@frq
+	nu	$3f4
+	p	$48 
+	p	$28 
+	n	$3c1 
+@loop
+;	n	$3fa
+;	n	$3f2
+	n	$3fa
+	n	$3f7
+
+@vol
+	$0f .2
+	$0c .2
+	$08 .2
+@loop
+	$00 ...
+
+
+
+
+@instrument sn2
+@frq
+	nu	$3fa
+	p	$30 .
+	n	$3f1 
+	p	$2c 
+	n	$3e8 
+	n	$3e3
+;	n	$3f1
+@loop
+	n	$3e7
+	n	$3fa
+
+@vol
+	$0f .2
+	$0d .2
+	$08 .2
+@loop
+	$00 ...
+
+
+@instrument hh
+@frq
+@loop
+	nu	$3ec
+	n	$3ed
+
+@vol
+	$0f 
+	$0c
+	$08 
+	$06
+	$04
+	$02 
+@loop
+	$00
+
+
+@instrument hh2
+@frq
+	pun	$3e1
+	n	$3e5
+@loop
+	n	$3eb
+
+@vol
+	$0f 
+@loop
+	$00
+
+@instrument hh4
+@frq
+	pun	$3fa
+	n	$3fa
+@loop
+	n	$3eb
+
+@vol
+	$0f 
+@loop
+	$00
+
+@instrument hh3
+@frq
+	pu	$3f8
+	pu	$360 
+	n	$3f4
+	n	$3f3
+@loop
+	n	$3f4
+	n	$3f3
+
+@vol
+	$0f .
+	$0b 
+@loop
+	$03
+
+
+
+
+@instrument hht
+@frq
+@loop
+	nu	$3ed
+	n	$3e2
+	n	$3f7
+	n	$3fa
+
+@vol
+@loop
+	$0e 
+	$04 
+	$00 ....
+
+
+@instrument hht2
+@frq
+@loop
+	nu	$3e4
+	p	$3e3
+	n	$3a2
+
+@vol
+@loop
+	$0e 
+	$0c 
+	$00 ...
+
+
+
+@instrument cl
+@frq
+	nu	$3fb .5
+	nu	$3fa
+@loop
+	nu	$3f7
+	
+@vol
+	$0e .4
+	$0d
+	$0c
+	$0b
+	$0a
+	$09
+	$08
+	$04 ...
+@loop
+	$00 
+
+
+

@@ -1,0 +1,18 @@
+@pattern pl_p2 @crlfwait_off
+@loop
+    nil .8
+	d#0 beng v=0 .8
+
+	.4
+	d#0 beng .4
+	.8
+
+    .4
+	c#0 beng .4
+	d#0 beng .4
+	.4
+
+	e2 beng .4
+	d#0 beng .4
+	.8
+@stop

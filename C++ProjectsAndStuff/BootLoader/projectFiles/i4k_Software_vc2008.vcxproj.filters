@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{660b0869-ddf9-4367-afd4-9bcfe83d3832}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\_windows">
+      <UniqueIdentifier>{a50c0af2-bad5-4d64-8fcb-c966dccb2db2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bt_globalcode">
+      <UniqueIdentifier>{e6444c26-ec1f-459e-bb35-5d7bde60d4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\loader2">
+      <UniqueIdentifier>{9aac7616-075d-4837-97dd-13f26872ed5c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\BootLoader\_c\_windows\main_deb.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BootLoader\_c\_windows\main_rel.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BootLoader\_c\intro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BootLoader\_c\setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\BootLoader\_c\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\BootLoader\_c\config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BootLoader\_c\fp.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BootLoader\_c\intro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BootLoader\_c\setup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\BootLoader\_c\utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\BootLoader\_code\GlobalCode\demopart.asm">
+      <Filter>Source Files\bt_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\BootLoader\_code\GlobalCode\fadein.asm">
+      <Filter>Source Files\bt_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\BootLoader\_code\GlobalCode\exodecrunch.s">
+      <Filter>Source Files\bt_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\Framework\trackmo\framework\player.asm">
+      <Filter>Source Files\loader2</Filter>
+    </None>
+    <None Include="..\..\Tech\loader\loader-v146\loader\src\resident\resident.s">
+      <Filter>Source Files\loader2</Filter>
+    </None>
+    <None Include="..\..\Tech\loader\loader-v146\loader\src\hal\hal-c16.inc">
+      <Filter>Source Files\loader2</Filter>
+    </None>
+    <None Include="..\..\..\Framework\trackmo\framework\kernal.inc">
+      <Filter>Source Files\loader2</Filter>
+    </None>
+    <None Include="..\..\..\Framework\trackmo\framework\fw_bootstrap.asm">
+      <Filter>Source Files\loader2</Filter>
+    </None>
+  </ItemGroup>
+</Project>

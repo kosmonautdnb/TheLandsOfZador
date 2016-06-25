@@ -1,0 +1,75 @@
+--- Symbol List (sorted by symbol)
+1.0                      183a              (R )
+1.1                      183d              (R )
+1.loader_ok              1818              (R )
+1.nowrap                 184a              (R )
+1.skip_loader_init       182d              (R )
+1.wait0                  181d              (R )
+1.wait1                  1824              (R )
+1.wait2                  181b              (R )
+1.y                      1812              (R )
+3.counter                18d5              (R )
+3.w                      187b              (R )
+4.0                      5710              (R )
+5.1                      574a              (R )
+5.2                      5752              (R )
+5.dst                    573f              (R )
+5.jmp                    5795              (R )
+5.src                    573c              (R )
+5.wait70                 5765              (R )
+5.wait71                 576d              (R )
+5.wait80                 577a              (R )
+5.wait81                 5782              (R )
+5.wait_pattern           5778              (R )
+demopart                 5720              (R )
+demopart_end             5720              (R )
+endaddrhi                000b                  
+endaddrlo                000a                  
+fw_bamtemp               5600              (R )
+fw_bgcolor               0217                  
+fw_decrunch              0203                  
+fw_framecounter          0215                  
+fw_image_addr            3f7f                  
+fw_image_begin           3f81              (R )
+fw_image_size            15f0                  
+fw_init                  1800              (R )
+fw_initloader            3bad                  
+fw_initplayer            0212              (R )
+fw_isdecrunching         0219                  
+fw_isloading             0218                  
+fw_jumptable             0200              (R )
+fw_load                  0200                  
+fw_load_end              0225                  
+fw_load_start            0223                  
+fw_lowirq_handler        020f                  
+fw_lowirq_install        020c              (R )
+fw_lowirq_plugin         0221                  
+fw_lowirq_rasterline     021f                  
+fw_run                   185b              (R )
+fw_settings              0215              (R )
+fw_singleclock           021a                  
+fw_song_off              0227                  
+fw_topirq_handler        0209                  
+fw_topirq_install        0206                  
+fw_topirq_plugin         021d                  
+fw_topirq_rasterline     021b                  
+fw_z4init                185f              (R )
+fw_z4timing              1881              (R )
+install                  3bad              (R )
+kp_beat_counter          0229                  
+kp_pattern_counter       0228              (R )
+kp_pulse_callback        022b                  
+kp_pulse_var             022a                  
+kp_volumetable_address   022d                  
+loadaddrhi               0009                  
+loadaddrlo               0008                  
+loader_zp_first          0008                  
+loader_zp_last           000d                  
+main                     5700              (R )
+openfile                 0230                  
+pollblock                0293                  
+reljump                  188d                  
+startdemo                5720              (R )
+tempa                    18d3                  
+ZP_USEBIOSLOADING        008f              (R )
+--- End of Symbol List.

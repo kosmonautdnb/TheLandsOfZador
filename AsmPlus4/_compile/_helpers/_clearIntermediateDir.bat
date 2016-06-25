@@ -1,0 +1,1 @@
+del ..\_intermediate\*.* /q /s /f

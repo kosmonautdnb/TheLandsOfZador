@@ -1,0 +1,238 @@
+@instrument sq
+@frq
+	pu $3f1
+	pt $3f4 .
+ 	pt $3f3 .
+	pt $3f2 .
+	pt $3f1 .
+@loop
+	pt $3f0
+
+@vol
+@loop
+	$0c .6
+	$02 .5 
+	$0a .4
+	$02 .3 
+
+
+
+
+@pattern claptest @crlfwait_off
+@loop
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .2
+
+	c3t+1 sq .4
+
+	cl v=-4 .4
+
+
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .4
+
+	c3t+1 sq v=-4 .2
+
+	cl v=-4 .4
+@stop
+
+
+@pattern claptest_dg @crlfwait_off
+@loop
+  groovebox[0]=5 
+  groovebox[1]=4 
+  groovebox[2]=5 
+  groovebox[3]=4 
+
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .2
+
+	c3t+1 sq .4
+
+	cl v=-4 .4
+
+
+	c1t-1 sq v=-8 .2
+
+	cl v=0 .4
+	cl v=-8 .4
+
+	c3t+1 sq v=-4 .2
+
+	cl v=-4 .4
+@stop
+
+
+@pattern claptest_bdx @crlfwait_off
+@loop
+	bd .8
+@stop
+
+@pattern claptest_bd @crlfwait_off
+@loop
+	bd .4
+	a1 sq .4
+	bd .4
+	h1 sq .4
+	bd .4
+	a1 sq .4
+	bd .4
+	a1 sq .2
+	bd .2
+
+
+	bd .4
+	a1 sq .4
+	bd .4
+	h1 sq .4
+	bd .4
+	e1 sq .4
+	bd .4
+	d1 sq .2
+	bd .2
+@stop
+
+
+@pattern claptest_hh @crlfwait_off
+@loop
+	hh4 v=-2 .2 
+	hh4 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+	hh4 .2
+	hh4 .2
+	hh4 .2
+@stop
+
+
+
+
+@pattern claptest_beng @crlfwait_off
+@loop
+	bd .4
+	c#0 beng .4
+	bd .2
+	e#3 beng .4
+	e0 sq .2
+	bd .4
+	c#0 beng .4
+	bd .2
+	c#0 beng .4
+	bd .2
+
+
+	bd .4
+	c0 beng .4
+	bd .4
+	c3 beng .4
+	bd .4
+	e0 beng .4
+	bd .2
+	e0t+1 sq .2
+	c#0 beng .2
+	bd .2
+@stop
+
+
+@pattern claptest_beng2 @crlfwait_off
+@loop
+	bd .4
+	c#0 beng .4
+	bd .2
+	e#3 beng .4
+	e0 sq .2
+	bd .4
+	c#0 beng .4
+	bd .2
+	c#0 beng .4
+	bd .2
+
+
+	bd .4
+	c0 beng .4
+	bd .4
+	c3 beng .4
+	bd .4
+	e0 beng .4
+	bd .2
+	e0t+1 sq .2
+	c#0 beng .2
+	bd .2
+@stop
+
+
+@pattern claptest_hh_fi1 @crlfwait_off
+	hh4 v=-2 .2 
+	hh4 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	sn v=0 .2
+	hh4 v=-2 .2
+	hh4 .2
+	hh4 .2
+	hh4 .2
+	
+@loop
+	sn v=0 .2
+	hh4 v=-2 .2 
+	hh4 v=-2 .2 
+	hh4 v=-2 .2 
+	
+
+@stop
+
+
+@pattern claptest_hhp @crlfwait_off
+@loop
+	hh4 v=-2 .2 
+@stop
+
+
+
+@pattern claptest_hhchr @crlfwait_off
+@loop
+	sn v=0 .2
+	hh4 v=-2 .2 
+	hh4 v=-1 .2 
+	hh4 v=0 .2 
+	sn v=0 .2
+	hh4 v=-2 .2 
+	hh4 v=-1 .2 
+	hh4 v=-1 .2 
+	sn v=0 .2
+	hh4 v=-2 .2 
+	c0 mchr1 v=0 .2 
+	hh4 v=-2 .2 
+	sn v=0 .2
+	hh4 v=-2 .2 
+	h0 mchr1 v=-2 .2 
+	hh4 v=-2 .2 
+@stop
+
+
+
+

@@ -1,0 +1,628 @@
+@instrument bl
+@frq
+@loop
+	pt	c0t+1 .2
+	pt	c0 .2
+	pt	c0t-1 .2 
+	pt	c0 .2
+	pt	c0t+1 .2
+	pt	c0  .2
+	pt	c0t-1 .2
+
+
+@vol
+    $0c .5
+    $0b .4
+    $0a .5
+    $08 .4
+@loop
+    $00 .8
+
+@instrument bl2
+@frq
+@loop
+	pt	c0t+1 .2
+	pt	c0 .2
+	pt	c0t-1 .2 
+	pt	c0 .2
+	pt	c0t+1 .2
+	pt	c0  .2
+	pt	c0t-1 .2
+
+
+@vol
+    $0a .8
+    $09 .8
+    $08 .8
+    $07 .8
+    $06 .8
+@loop
+    $04 .8
+
+
+@instrument bip
+@frq
+  pt  c3
+@loop
+	pt	c1 .2
+	pt	c1t-1 .2
+	pt	c1t-2 .2
+	pt	c1t-1 .2
+	pt	c1 .2
+	pt	c1t+1 .2
+	pt	c1t+2 .2
+	pt	c1t+1 .2
+
+
+@vol
+	$0b .5
+	$02 .8 
+	$01 .8 
+@loop
+    $00 .8
+
+
+@instrument chr1
+@frq
+    pu $3e4 
+@loop
+	pt d1 .
+	pt g1 .
+	pt c1 .
+
+
+@vol
+    $0c .2
+    $0a .2
+    $08 .1
+    $06 .1
+@loop
+    $03 .4
+
+@instrument chr2
+@frq
+@loop
+	pt g2 .2
+	pt d#1 .2
+	pt c2 .2
+	pt g1 .2
+	pt d#2 .2
+	pt c1 .2
+
+
+@vol
+@loop
+    $0c .5
+    $0a .4
+    $08 .5
+    $06 .4
+
+
+
+@instrument mchr1
+@frq
+@loop
+	pt d2 .5
+	pt g2 .4
+	pt c2 .5
+	pt h2 .5
+	pt d2 .4
+	pt g2 .5
+	pt c2 .4
+@vol
+    $0c .4
+@loop
+    $03 .4
+
+@instrument mchr2
+@frq
+@loop
+	pt c2 .2
+	pt e2 .2
+	pt g2 .2
+	pt c3 .3
+@vol
+@loop
+	$0b .4
+	$02 .5
+	$0a .4
+	$01 .5
+    
+    
+@pattern bl1 @crlfwait_off
+@loop
+	c0 bd .4
+	e0 chr1 .2
+	e0 bl .2
+	c0 sn2 .4
+	e0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	e0 bl v=0 .4
+	c0 sn2 .2
+	e0 chr1 .2
+	d0 bl v=0 .4
+@stop
+
+
+@pattern bl2 @crlfwait_off
+@loop
+	c0 bd .4
+	e0 chr1 .2
+	c0 bl .2
+	c0 sn2 .4
+	c0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	c0 bl v=0 .4
+	c0 sn2 .2
+	e0 chr1 .2
+	g0 bl v=0 .4
+
+	c0 bd .4
+	e0 chr1 .2
+	a0 bl .2
+	c0 sn2 .4
+	a0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	a0 bl v=0 .4
+	c0 sn2 .2
+	c0 bd .2
+	e0 chr1 .2
+	h0 bl v=0 .2
+
+@stop
+
+
+@pattern bl2_fi @crlfwait_off
+@loop
+	c0 bd .4
+	e0 chr1 .2
+	c0 bl .2
+	c0 sn2 .4
+	c0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	c0 bl v=0 .4
+	c0 sn2 .2
+	e0 chr1 .2
+	g0 bl v=0 .4
+
+	c0 bd .4
+	e0 chr1 .2
+	a0 bl .2
+	c0 sn2 .4
+	a0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	c0 bd .
+	a0 bl v=0 .3
+	c0 sn2 .2
+	c0 bd .2
+	e0 chr1 .2
+	h0 bl v=0 .2
+
+@stop
+
+
+@pattern bip1 @crlfwait_off
+@loop
+    e0 bip v=0 .2
+    c0 bip .2
+    g0 bip .2
+    e0 bip .2
+    c0 bip .2
+    a0 bip .2
+@stop
+
+
+@pattern bip1_ou @crlfwait_off
+@loop
+    e1 bip v=0 .2
+    c1 bip .2
+    g1 bip .2
+    e1 bip .2
+    c1 bip .2
+    a1 bip .2
+@stop
+
+@pattern bip2 @crlfwait_off
+@loop
+    nil .4
+    f0 bip .4
+    .4
+    .4
+    a#0 bip v=0 .4
+    .4
+    .4
+    a0 bip .4
+    .4
+    .4
+    g0 bip .4
+    .4
+    .4
+    f1 bip .4
+    .4
+    .4
+    d#0 bip .4
+    .4
+    .4
+
+@stop
+
+@pattern bip2a @crlfwait_off
+@loop
+    nil .4
+    g0 bip .4
+    .4
+    .4
+    c0 bip v=0 .4
+    .4
+    .4
+    h0 bip .4
+    .4
+    .4
+    a0 bip .4
+    .4
+    .4
+    g1 bip .4
+    .4
+    .4
+    f#0 bip .4
+    .4
+    .4
+
+@stop
+
+
+@pattern beat1 @crlfwait_off
+@loop
+	bd .2
+	.2
+	.2
+	.2
+@stop
+
+
+@pattern chr1 @crlfwait_off
+	nil .4
+@stop
+
+@pattern chr2 @crlfwait_off
+	e1 chr1 .8
+	.8
+
+	.8
+	.8
+	d1 chr1 .4
+@stop
+
+
+
+@pattern hhmixin @crlfwait_off
+@loop
+    c0 hh .4 v=-3
+    c0 hh4 .4
+    c0 hh4 .4
+    c0 hh2 .2
+    c0 hh4 .2
+@stop    
+
+
+
+@instrument melo
+@frq
+	pt	g1
+	pt  c1
+    
+@loop
+	pt	c0t-1 . 
+	pt	c0t-2 .. 
+	pt	c0t-1 . 
+	pt	c0 .
+	pt	c0t+1 .
+	pt	c0t+2 ..
+	pt	c0t+1 .
+	pt	c0  .
+
+
+@vol
+    $0c .2
+    $0a .2
+    $08 .2
+@loop
+    $07 .5
+
+
+
+@pattern melo1 @crlfwait_off
+    e2 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .3
+    nil .1
+    d2 melo .4
+    e2 melo .4
+    f#2 melo .4
+    g2 melo .4
+    f#2 melo .4
+    .6
+    nil .2
+    d2 melo .4
+@stop    
+
+@pattern melo1ch @crlfwait_off
+	e0 mchr2 .4
+@stop    
+
+@pattern melo2 @crlfwait_off
+    c2 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    d2 melo .4
+    a1 melo .4
+@stop    
+
+@pattern melo2ch @crlfwait_off
+	c0 mchr2 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    d0 mchr2 .4
+@stop    
+
+@pattern melo3 @crlfwait_off
+    e2 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .3
+    nil .1
+    d2 melo .4
+    e2 melo .4
+    f#2 melo .4
+    g2 melo .4
+    f#2 melo .4
+    .4
+    g2 melo .4
+    h2 melo .4
+@stop    
+
+@pattern melo3ch @crlfwait_off
+	e0 mchr2 .4
+@stop    
+
+
+@pattern melo4 @crlfwait_off
+    d3 .4
+    .4
+    .4
+    .4
+    h2 .4
+    .4
+    .4
+    .4
+    c3 .4
+    .4
+    .4
+    .4
+    h2 .4
+    .4
+    .4
+    .4
+@stop    
+
+@pattern melo4ch @crlfwait_off
+	c0 mchr2 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    d0 mchr2 .4
+@stop    
+
+@pattern melo4ch_x @crlfwait_off
+	c0 mchr2 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    d0 mchr2 .4
+    .4
+    .4
+    .4
+    nil
+@stop    
+
+
+@pattern downgroove @crlfwait_off
+    c0 nil v=-1
+    groovebox[0]=5 .
+    groovebox[1]=4 .
+    groovebox[2]=5 .
+    groovebox[3]=4 .
+@stop
+
+@pattern upgroove @crlfwait_off
+    c0 nil v=0 .
+    groovebox[0]=6 .
+    groovebox[1]=5 .
+    groovebox[2]=4 .
+    groovebox[3]=3 .
+@stop
+
+
+@pattern off @crlfwait_off
+  c0 nil v=0
+@stop  
+
+
+
+
+
+@pattern bln1 @crlfwait_off
+@loop
+	e0 bl2 v=0 .8
+	.8
+	.8
+	.8
+	.8
+	.8
+	.8
+	d0 bl2 .8
+	.8
+@stop
+
+
+@pattern bln2 @crlfwait_off
+@loop
+	c0 bl2 .8
+	.8
+	.8
+	.8
+	.8
+	.8
+	.8
+	a0 bl2 .8
+	.8
+
+@stop
+
+
+
+@pattern bl2_fi2 @crlfwait_off
+	c0 bd .4
+	e0 chr1 .2
+	c0 bl .2
+	c0 sn2 .4
+	c0 bl v=0 .2
+	e0 chr1 .2
+	c0 bd .4
+	c0 bl v=0 .4
+	c0 sn2 .2
+	e0 chr1 .2
+	g0 bl v=0 .4
+
+	c0 bd .4
+	e0 chr1 .4
+	sn2 .4
+	e0 chr1 .4
+	bd .4
+	e0 chr1 .4
+	sn2 .4
+	e0 chr1 .4
+@stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@pattern melo1_od @crlfwait_off
+    e1 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .3
+    nil .1
+    d1 melo .4
+    e1 melo .4
+    f#1 melo .4
+    g1 melo .4
+    f#1 melo .4
+    .6
+    nil .2
+    d1 melo .4
+@stop    
+
+@pattern melo2_od @crlfwait_off
+    c1 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    d1 melo .4
+    a0 melo .4
+@stop    
+
+@pattern melo3_od @crlfwait_off
+    e1 melo v=0 .4
+    .4
+    .4
+    .4
+    .4
+    .4
+    .3
+    nil .1
+    d1 melo .4
+    e1 melo .4
+    f#1 melo .4
+    g1 melo .4
+    f#1 melo .4
+    .4
+    g1 melo .4
+    h1 melo .4
+@stop    
+
+
+@pattern melo4_od @crlfwait_off
+    d2 .4
+    .4
+    .4
+    .4
+    h1 .4
+    .4
+    .4
+    .4
+    c2 .4
+    .4
+    .4
+    .4
+    h1 .4
+    .4
+    .4
+    .4
+@stop    

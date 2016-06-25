@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{660b0869-ddf9-4367-afd4-9bcfe83d3832}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\_windows">
+      <UniqueIdentifier>{a437a4d2-0a59-4ca1-80b5-b23b9bcbb840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sp_globalCode">
+      <UniqueIdentifier>{438a35ad-c68a-4890-980a-88fe0f3d0f89}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\StartPicture\_c\intro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartPicture\_c\setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartPicture\_c\utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartPicture\_c\_windows\main_deb.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\StartPicture\_c\_windows\main_rel.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\demopart.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\imcdfli.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\fadercode.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\imcdfli2.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\demopart_fli.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+    <None Include="..\..\..\StartPicture\_code\GlobalCode\fadein.asm">
+      <Filter>Source Files\sp_globalCode</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\StartPicture\_c\config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartPicture\_c\fp.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartPicture\_c\intro.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartPicture\_c\setup.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\StartPicture\_c\utils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

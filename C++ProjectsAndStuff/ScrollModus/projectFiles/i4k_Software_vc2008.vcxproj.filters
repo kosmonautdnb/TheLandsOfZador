@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{660b0869-ddf9-4367-afd4-9bcfe83d3832}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\_windows">
+      <UniqueIdentifier>{a437a4d2-0a59-4ca1-80b5-b23b9bcbb840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\leveleditor">
+      <UniqueIdentifier>{786ab43a-737f-4b47-b8e2-06fc01668058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_globalcode">
+      <UniqueIdentifier>{44b7a0e2-e82d-45bc-8300-b58240425f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world1code">
+      <UniqueIdentifier>{b6a6aa25-e19e-4327-9beb-9f1539cb974b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world2code">
+      <UniqueIdentifier>{0c230c5b-9fe0-4b5c-8b10-749b1ad7d91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world3code">
+      <UniqueIdentifier>{15affb9f-2b4a-4a15-b902-680cc8e576d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world0code_dontuse">
+      <UniqueIdentifier>{c00ac666-c5f2-4444-9d05-56f1e51c885b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world4code">
+      <UniqueIdentifier>{2e5ee8db-6725-4844-ae26-eb08544cd079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world5code">
+      <UniqueIdentifier>{c3f1d004-08f8-481b-a9c5-12ec3d4f1a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world6code">
+      <UniqueIdentifier>{4f8b9834-06e2-4efb-824b-95ac34e14458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world7code">
+      <UniqueIdentifier>{2b09b911-f24b-47d0-929d-3c5f8dcd06d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sm_world8Code">
+      <UniqueIdentifier>{96cd43dc-fd9c-45ef-a860-00c4f31d961b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Editors\LevelEditorScrollModus\src\_windows\main_deb.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Editors\LevelEditorScrollModus\src\_windows\main_rel.cpp">
+      <Filter>Source Files\_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Editors\LevelEditorScrollModus\src\intro.cpp">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Editors\LevelEditorScrollModus\src\setup.cpp">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Editors\LevelEditorScrollModus\src\utils.cpp">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Editors\LevelEditorScrollModus\src\config.h">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Editors\LevelEditorScrollModus\src\fp.h">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Editors\LevelEditorScrollModus\src\intro.h">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Editors\LevelEditorScrollModus\src\setup.h">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Editors\LevelEditorScrollModus\src\utils.h">
+      <Filter>Source Files\leveleditor</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\demopart.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\enemylogik.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\fadeinout.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\gamelogik.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\gameobjects.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\hardscrollaligned.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\interstitials.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\overlays.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\player.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\scroll.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\sound.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\sprites.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World1Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world1code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World2Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world2code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World3Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world3code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\_globalincludes\memorylayout.inc">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World0Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world0code_dontuse</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\screens.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\layers.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\perleveldata.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\enemyLogikLevelGlobal.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World0Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world0code_dontuse</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World1Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world1code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World2Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world2code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World3Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world3code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World4Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world4code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World4Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world4code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World5Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world5code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World5Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world5code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World6Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world6code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World6Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world6code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World7Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world7code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World7Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world7code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\GlobalCode\particleexplosion.asm">
+      <Filter>Source Files\sm_globalcode</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World8Code\enemyLogikLevel.asm">
+      <Filter>Source Files\sm_world8Code</Filter>
+    </None>
+    <None Include="..\..\..\ScrollModus\_code\World8Code\layerCodeLevel.asm">
+      <Filter>Source Files\sm_world8Code</Filter>
+    </None>
+  </ItemGroup>
+</Project>

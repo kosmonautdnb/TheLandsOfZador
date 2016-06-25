@@ -1,0 +1,119 @@
+ins1
+	KP_OSCV $90,0,1,0,$00
+	KP_OSCV $C8,0,1,0,$00
+	KP_OSCV $B4,0,1,0,$00
+	KP_OSCV $84,0,1,0,$00
+	KP_OSCV $7C,0,1,0,$00
+	KP_OSCV $A4,0,1,0,$00
+ins1loop
+	KP_OSCV $74,0,0,0,$00
+	KP_OSCJ [ins1loop-ins1]
+
+vol1
+	KP_VOLV $08,$05
+vol1loop
+	KP_VOLV $00,$00
+	KP_VOLJ [vol1loop-vol1]
+ins2
+	KP_OSCV $5C,0,1,0,$00
+	KP_OSCV $44,0,1,0,$00
+	KP_OSCV $B4,1,0,0,$02
+	KP_OSCV $8C,1,0,0,$01
+	KP_OSCV $44,0,1,0,$01
+	KP_OSCV $1C,1,0,0,$00
+	KP_OSCV $14,1,0,0,$00
+	KP_OSCV $68,1,0,0,$02
+	KP_OSCV $08,0,1,0,$03
+ins2loop
+	KP_OSCV $08,1,0,0,$00
+	KP_OSCJ [ins2loop-ins2]
+
+vol2
+	KP_VOLV $0E,$00
+	KP_VOLV $0D,$00
+	KP_VOLV $0C,$00
+	KP_VOLV $0B,$00
+	KP_VOLV $0A,$00
+	KP_VOLV $0B,$00
+	KP_VOLV $0C,$00
+	KP_VOLV $0E,$00
+	KP_VOLV $0D,$00
+	KP_VOLV $0C,$00
+	KP_VOLV $0B,$00
+	KP_VOLV $0A,$00
+	KP_VOLV $09,$00
+	KP_VOLV $0A,$00
+	KP_VOLV $0B,$00
+	KP_VOLV $0C,$00
+	KP_VOLV $0D,$00
+	KP_VOLV $0C,$00
+vol2loop
+	KP_VOLV $00,$00
+	KP_VOLJ [vol2loop-vol2]
+ins3
+	KP_OSCV $30,0,1,0,$00
+	KP_OSCV $38,0,1,0,$00
+	KP_OSCV $40,0,1,0,$00
+	KP_OSCV $44,0,1,0,$00
+	KP_OSCV $4C,0,1,0,$00
+	KP_OSCV $54,0,1,0,$00
+	KP_OSCV $5C,0,1,0,$00
+	KP_OSCV $60,0,1,0,$00
+	KP_OSCV $68,0,1,0,$00
+	KP_OSCV $70,0,1,0,$00
+	KP_OSCV $74,0,1,0,$00
+	KP_OSCV $4C,0,1,0,$00
+	KP_OSCV $54,0,1,0,$00
+ins3loop
+	KP_OSCV $5C,0,0,0,$00
+	KP_OSCJ [ins3loop-ins3]
+
+vol3
+	KP_VOLV $0D,$0C
+vol3loop
+	KP_VOLV $00,$00
+	KP_VOLJ [vol3loop-vol3]
+ins4
+	KP_OSCV $14,0,1,0,$00
+	KP_OSCV $1C,0,1,0,$00
+	KP_OSCV $24,0,1,0,$00
+	KP_OSCV $2C,0,1,0,$00
+	KP_OSCV $30,0,1,0,$00
+	KP_OSCV $38,0,1,0,$00
+	KP_OSCV $40,0,1,0,$00
+	KP_OSCV $44,0,1,0,$00
+	KP_OSCV $4C,0,1,0,$00
+	KP_OSCV $54,0,1,0,$00
+ins4loop
+	KP_OSCV $5C,0,0,0,$00
+	KP_OSCJ [ins4loop-ins4]
+
+vol4
+	KP_VOLV $0C,$01
+	KP_VOLV $0D,$07
+vol4loop
+	KP_VOLV $00,$00
+	KP_VOLJ [vol4loop-vol4]
+ins5
+	KP_OSCV $44,0,1,0,$00
+	KP_OSCV $4C,0,1,0,$00
+	KP_OSCV $54,0,1,0,$00
+	KP_OSCV $5C,0,1,0,$00
+	KP_OSCV $60,0,1,0,$00
+	KP_OSCV $68,0,1,0,$00
+	KP_OSCV $2C,0,1,0,$00
+	KP_OSCV $30,0,1,0,$00
+	KP_OSCV $38,0,1,0,$00
+	KP_OSCV $40,0,1,0,$00
+	KP_OSCV $44,0,1,0,$00
+	KP_OSCV $4C,0,1,0,$00
+	KP_OSCV $54,0,1,0,$00
+ins5loop
+	KP_OSCV $5C,0,0,0,$00
+	KP_OSCJ [ins5loop-ins5]
+
+vol5
+	KP_VOLV $08,$0C
+vol5loop
+	KP_VOLV $00,$00
+	KP_VOLJ [vol5loop-vol5]
