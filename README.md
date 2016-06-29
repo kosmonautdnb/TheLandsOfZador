@@ -4,7 +4,7 @@ This is all the code and graphics used in "The Lands of Zador".. Use it at your 
 To run or compile it:
 You need "yape.exe" somewhere in a global path
 You need "dasm.exe" somewhere in a global path
-You need "exomizer2.exe" somewhere in a global path
+You need "exomizer2.exe" somewhere in a global path (version 207)
 
 Then you can run in AsmPlus4/ScrollWorld1/test.bat to see the first level of the game
 
